@@ -1,0 +1,16 @@
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Create new webhook
+      github_webhook:
+        repository: pocteo/ci-cd-k8s
+        url: https://pocteo.io/hook
+        events:
+          - push
+        user: pocteo
+        token: 22975f8056263c9dc7fcf433efd09ee1db422e50
+        github_url: https://api.github.com
+        content_type: json
+        insecure_ssl: false
+        state: present 
+
